@@ -141,7 +141,9 @@ function makeRenderer(opts = {}) {
                   {j === 0 && rowAttrs.length !== 0 && (
                     <th colSpan={rowAttrs.length} rowSpan={colAttrs.length} />
                   )}
-                  <th className="pvtAxisLabel">{c}</th>
+                  <th className="pvtAxisLabel">
+                    <span>{c}</span>
+                  </th>
                   {colKeys.map(function(colKey, i) {
                     const x = spanSize(colKeys, i, j);
                     if (x === -1) {
@@ -158,7 +160,7 @@ function makeRenderer(opts = {}) {
                             : 1
                         }
                       >
-                        {colKey[j]}
+                        <span>{colKey[j]}</span>
                       </th>
                     );
                   })}
@@ -170,7 +172,7 @@ function makeRenderer(opts = {}) {
                         colAttrs.length + (rowAttrs.length === 0 ? 0 : 1)
                       }
                     >
-                      Totals
+                      <span>Totals</span>
                     </th>
                   )}
                 </tr>
@@ -182,12 +184,12 @@ function makeRenderer(opts = {}) {
                 {rowAttrs.map(function(r, i) {
                   return (
                     <th className="pvtAxisLabel" key={`rowAttr${i}`}>
-                      {r}
+                      <span>{r}</span>
                     </th>
                   );
                 })}
                 <th className="pvtTotalLabel">
-                  {colAttrs.length === 0 ? 'Totals' : null}
+                  <span>{colAttrs.length === 0 ? 'Totals' : null}</span>
                 </th>
               </tr>
             )}
@@ -214,7 +216,7 @@ function makeRenderer(opts = {}) {
                             : 1
                         }
                       >
-                        {txt}
+                        <span>{txt}</span>
                       </th>
                     );
                   })}
@@ -257,7 +259,7 @@ function makeRenderer(opts = {}) {
                 className="pvtTotalLabel"
                 colSpan={rowAttrs.length + (colAttrs.length === 0 ? 0 : 1)}
               >
-                Totals
+                <span>Totals</span>
               </th>
 
               {colKeys.map(function(colKey, i) {
